@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDoItem = ({name, isChecked}) => {
+const ToDoItem = ({ name, isChecked }) => {
   return (
     <div>
       <input type='checkbox' checked={isChecked} />

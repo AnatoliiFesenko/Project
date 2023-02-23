@@ -1,7 +1,7 @@
 import React from 'react'
-import AllToDos from './components/AllToDos.jsx'
+import AllToDos from './components/todos/AllToDos.jsx'
 import ToDo from './components/ToDo.jsx'
-import AllRoutes from './components/AllRoutes.jsx'
+import AllRoutes from './routes/AllRoutes.jsx'
 
 const App = () => {
   return (
