@@ -1,16 +1,13 @@
-import React from 'react'
-import AllToDos from './components/AllToDos.jsx'
-import ToDo from './components/ToDo.jsx'
-import AllRoutes from './components/AllRoutes.jsx'
+import React from "react";
+
+import AllRoutes from "./components/AllRoutes/AllRoutes.jsx";
 
 const App = () => {
   return (
     <div>
-    <AllRoutes/>
-      {/* <AllToDos/> */}
-      {/* <ToDo/> */}
+      <AllRoutes />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
