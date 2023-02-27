@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card, CardGroup, Button } from "react-bootstrap";
+import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
 import cancelIcon from "../img/cancel_icon.svg";
 import doneIcon from "../img/done_icon.svg";
 import { Link } from "react-router-dom";
 import { ToDoItems } from "../ToDoItems/ToDoItems";
+import styles from "./ToDoList.module.scss";
 
 const ToDoList = () => {
   let items = ToDoItems();
-  let getNewURL = (event) => {
-    // console.log(event.target.id);
-  };
 
   return (
-    <div>
-      <h1
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-        }}
-      >
-        ToDos
-      </h1>
-      <Row className="g-3">
+    <div className={styles.wrapper}>
+      <h1 className={styles.h1}>ToDos</h1>
+      <Row className="g-3" style={{ margin: "1px" }}>
         {items.map((item) => (
           <Col key={item.id}>
             <Link
@@ -30,18 +20,22 @@ const ToDoList = () => {
               style={{ textDecoration: "none", color: "black" }}
             >
               <Card
+                className={styles.card}
                 id={item.id}
-                style={{ width: "300px", height: "180px", cursor: "pointer" }}
-                onClick={getNewURL}
+                border={item.completed ? "success" : "danger"}
+                text={item.completed ? "success" : "danger"}
               >
-                <Card.Body id={item.id}>
-                  <Card.Title id={item.id}> {item.title} </Card.Title>
+                <Card.Body className={styles.cardBody} id={item.id}>
+                  <Card.Text id={item.id}>
+                    {" "}
+                    {item.id}.
+                    <Card.Title id={item.id}> {item.title} </Card.Title>{" "}
+                  </Card.Text>
 
-                  <Card.Text id={item.id}> {item.id} </Card.Text>
                   <Card.Img
                     id={item.id}
                     variant="bottom"
-                    height="20px"
+                    height={item.completed ? "35px" : "25px"}
                     src={item.completed ? doneIcon : cancelIcon}
                   />
                 </Card.Body>
